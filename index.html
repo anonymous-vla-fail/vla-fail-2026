@@ -142,7 +142,25 @@
     "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
     "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
     "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
-    "abstract": "FULL_ABSTRACT_TEXT_HERE",
+    "abstract": "Vision-language-action models (VLAs) achieve state-of-the-art perfor-1
+                mance on many robotic manipulation tasks, yet they can still behave unpredictably2
+                in out-of-distribution scenarios. Runtime failure detection is therefore essential3
+                for the safe real-world deployment of VLAs. However, existing task failure detec-4
+                tors require computationally expensive action sampling, are based on architectural5
+                assumptions that limit their applicability to VLAs, or need access to failure roll-6
+                outs. We propose VLA-FAIL, a lightweight and broadly applicable failure detec-7
+                tion framework for VLAs that combines two novel failure detectors with minimal8
+                overhead, without requiring failure data. The first, last-layer Mahalanobis distance9
+                (LLMD), detects out-of-distribution states by measuring token-wise deviations in10
+                last-layer features relative to the training data. The second, action chunk consis-11
+                tency (ACC), exploits the temporal overlap induced by receding-horizon control12
+                and detects failures when consecutive action chunks become inconsistent. To cap-13
+                ture the trade-off between detection accuracy and detection latency, we introduce14
+                AUCPDT, a threshold-independent metric that jointly evaluates precision, recall,15
+                and detection time. Through extensive real-world and simulation experiments, we16
+                demonstrate that LLMD and ACC capture complementary failure modes whose17
+                combination enables reliable and early failure detection across diverse tasks, fre-18
+                quently outperforming significantly more expensive baseline methods.",
     "citation": "BIBTEX_CITATION_HERE",
     "isAccessibleForFree": true,
     "license": "https://creativecommons.org/licenses/by/4.0/",
@@ -245,10 +263,10 @@
               <!-- TODO: Replace with your paper authors and their personal links -->
               <span class="author-block">
                 <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Anonymous Submission</a><sup>*</sup>,</span>
-                <span class="author-block">
+                <!-- <span class="author-block">
                   <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Anonymous Submission</a><sup>*</sup>,</span>
                   <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Anonymous Submission</a>
+                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Anonymous Submission</a> -->
                   </span>
                   </div>
 
