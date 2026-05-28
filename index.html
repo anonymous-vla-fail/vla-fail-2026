@@ -327,10 +327,13 @@
 <!-- Overview -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="Framework Overview">Overview</h2>
+    <h2 class="title is-2 has-text-centered overview-title">Framework Overview</h2>
     <div class="overview-figure">
       <!-- Replace this image with your main overview figure. -->
-      <img src="static/images/pipeline.drawio.jpg" alt="Overview of the VLA-FAIL method" loading="lazy">
+      <img src="static/images/pipeline.jpg" alt="Framework Overview" loading="lazy">
+      <!-- <p class="overview-caption">
+        Framework overview of VLA-FAIL for runtime failure detection in vision-language-action models.
+      </p> -->
     </div>
     <div class="content has-text-justified overview-text">
       <p>
@@ -342,30 +345,478 @@
 <!-- End overview -->
 
 
-<!-- Demo videos -->
+<!-- Overview -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Videos</h2>
+    <h2 class="title is-2 has-text-centered overview-title">Inference Latency</h2>
+    <div class="overview-figure latency-figure">
+      <!-- Replace this image with your main overview figure. -->
+      <img src="static/images/perf.jpg" alt="Inference Latency" loading="lazy">
+      <!-- <p class="overview-caption">
+        Inference latency of VLA-FAIL compared to baseline methods.
+      </p> -->
+    </div>
+    <div class="content has-text-justified overview-text">
+      <p>
+        Time in mil-liseconds to sample an action chunk for X-VLA on an NVIDIA RTX 5090 GPU when using various failure detectors. The numbers behind ACE and Diff indicate the number of action samples. These baseline methods incur significant computational overhead and are therefore not real-time capable. The time for the VLM forward pass is excluded as it is identical across methods.
+      </p>
+    </div>
+  </div>
+</section>
+<!-- End overview -->
 
-    <div class="columns is-multiline">
+<!-- Demo videos -->
+<section class="section task-video-section task-group-start">
+  <div class="container is-max-desktop">
+  <h2 class="title is-3 has-text-centered">Real-World Successful Failure Detected</h2>
+
+    <div class="box task-video-box">
+      <h3 class="title is-4 task-video-title">Task: Blocks</h3>
+      <p class="task-prompt">Language Description: "Stack the green block on the yellow block."</p>
+      <div class="columns is-multiline">
       <div class="column is-half">
-        <video class="demo-video" controls muted loop playsinline preload="metadata">
-          <source src="static/videos/rollout_020_False_llmd_True.mp4" type="video/mp4">
+        <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+          <source src="static/videos/block_success_failure/pi_acc_success.mp4" type="video/mp4">
         </video>
-        <p class="has-text-centered">Demo caption 1</p>
+        <p class="demo-caption has-text-centered">&pi;<sub>0.5</sub> ACC</p>
       </div>
       <div class="column is-half">
-        <video class="demo-video" controls muted loop playsinline preload="metadata">
-          <source src="static/videos/rollout_020_False_llmd_True.mp4" type="video/mp4">
+        <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+          <source src="static/videos/block_success_failure/pi_llmd_success.mp4" type="video/mp4">
         </video>
-        <p class="has-text-centered">Demo caption 2</p>
+        <p class="demo-caption has-text-centered">&pi;<sub>0.5</sub> LLMD</p>
       </div>
-      <!-- <div class="column is-half">
-        <video class="demo-video" controls muted loop playsinline preload="metadata">
-          <source src="static/videos/demo3.mp4" type="video/mp4">
+
+    <div class="column is-half">
+      <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+        <source src="static/videos/block_success_failure/xvla_acc_success.mp4" type="video/mp4">
+      </video>
+      <p class="demo-caption has-text-centered">X-VLA ACC</p>
+    </div>
+
+    <div class="column is-half">
+      <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+        <source src="static/videos/block_success_failure/xvla_llmd_success.mp4" type="video/mp4">
+      </video>
+      <p class="demo-caption has-text-centered">X-VLA LLMD</p>
+    </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End demo videos -->
+
+
+<!-- Demo videos -->
+<section class="section task-video-section">
+  <div class="container is-max-desktop">
+    <div class="box task-video-box">
+      <h3 class="title is-4 task-video-title">Task: Cups</h3>
+      <p class="task-prompt">Language Description: "Pick up one cup and stack it into another."</p>
+      <div class="columns is-multiline">
+      <div class="column is-half">
+        <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+          <source src="static/videos/cups_success_failure/pi_acc_success.mp4" type="video/mp4">
         </video>
-        <p class="has-text-centered">Demo caption 3</p>
-      </div> -->
+        <p class="demo-caption has-text-centered">&pi;<sub>0.5</sub> ACC</p>
+      </div>
+      <div class="column is-half">
+        <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+          <source src="static/videos/cups_success_failure/pi_llmd_success.mp4" type="video/mp4">
+        </video>
+        <p class="demo-caption has-text-centered">&pi;<sub>0.5</sub> LLMD</p>
+      </div>
+
+    <div class="column is-half">
+      <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+        <source src="static/videos/cups_success_failure/xvla_acc_success.mp4" type="video/mp4">
+      </video>
+      <p class="demo-caption has-text-centered">X-VLA ACC</p>
+    </div>
+
+    <div class="column is-half">
+      <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+        <source src="static/videos/cups_success_failure/xvla_llmd_success.mp4" type="video/mp4">
+      </video>
+      <p class="demo-caption has-text-centered">X-VLA LLMD</p>
+    </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End demo videos -->
+
+<!-- Demo videos -->
+<section class="section task-video-section">
+  <div class="container is-max-desktop">
+    <div class="box task-video-box">
+      <h3 class="title is-4 task-video-title">Task: Kitchen</h3>
+      <p class="task-prompt">Language Description: "Remove the pot lid, move the carrot from pan to pot, replace the lid, and place the pan in the sink."</p>
+      <div class="columns is-multiline">
+      <div class="column is-half">
+        <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+          <source src="static/videos/kitchen_success_failure/pi_acc_success.mp4" type="video/mp4">
+        </video>
+        <p class="demo-caption has-text-centered">&pi;<sub>0.5</sub> ACC</p>
+      </div>
+      <div class="column is-half">
+        <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+          <source src="static/videos/kitchen_success_failure/pi_llmd_success.mp4" type="video/mp4">
+        </video>
+        <p class="demo-caption has-text-centered">&pi;<sub>0.5</sub> LLMD</p>
+      </div>
+
+    <div class="column is-half">
+      <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+        <source src="static/videos/kitchen_success_failure/xvla_acc_success.mp4" type="video/mp4">
+      </video>
+      <p class="demo-caption has-text-centered">X-VLA ACC</p>
+    </div>
+
+    <div class="column is-half">
+      <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+        <source src="static/videos/kitchen_success_failure/xvla_llmd_success.mp4" type="video/mp4">
+      </video>
+      <p class="demo-caption has-text-centered">X-VLA LLMD</p>
+    </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End demo videos -->
+
+<!-- Demo videos -->
+<section class="section task-video-section">
+  <div class="container is-max-desktop">
+    <div class="box task-video-box">
+      <h3 class="title is-4 task-video-title">Task: Stack T</h3>
+      <p class="task-prompt">Language Description: "Stack both t objects on top of each other."</p>
+      <div class="columns is-multiline">
+      <div class="column is-half">
+        <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+          <source src="static/videos/stack_t_success_failure/pi_acc_success.mp4" type="video/mp4">
+        </video>
+        <p class="demo-caption has-text-centered">&pi;<sub>0.5</sub> ACC</p>
+      </div>
+      <div class="column is-half">
+        <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+          <source src="static/videos/stack_t_success_failure/pi_llmd_success.mp4" type="video/mp4">
+        </video>
+        <p class="demo-caption has-text-centered">&pi;<sub>0.5</sub> LLMD</p>
+      </div>
+
+    <div class="column is-half">
+      <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+        <source src="static/videos/stack_t_success_failure/xvla_acc_success.mp4" type="video/mp4">
+      </video>
+      <p class="demo-caption has-text-centered">X-VLA ACC</p>
+    </div>
+
+    <div class="column is-half">
+      <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+        <source src="static/videos/stack_t_success_failure/xvla_llmd_success.mp4" type="video/mp4">
+      </video>
+      <p class="demo-caption has-text-centered">X-VLA LLMD</p>
+    </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End demo videos -->
+
+
+<!-- Demo videos -->
+<section class="section task-video-section task-group-start">
+  <div class="container is-max-desktop">
+  <h2 class="title is-3 has-text-centered">Real-World Detector Failure Cases</h2>
+
+    <div class="box task-video-box">
+      <h3 class="title is-4 task-video-title">Task: Blocks</h3>
+      <p class="task-prompt">Language Description: "Stack the green block on the yellow block."</p>
+      <div class="columns is-multiline">
+      <div class="column is-half">
+        <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+          <source src="static/videos/block_iid_failure/pi_acc_failure.mp4" type="video/mp4">
+        </video>
+        <p class="demo-caption has-text-centered">&pi;<sub>0.5</sub> ACC</p>
+      </div>
+      <div class="column is-half">
+        <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+          <source src="static/videos/block_iid_failure/pi_llmd_success.mp4" type="video/mp4">
+        </video>
+        <p class="demo-caption has-text-centered">&pi;<sub>0.5</sub> LLMD</p>
+      </div>
+      </div>
+    </div>
+    <p class="task-video-description">
+      A common failure case of ACC is that it detects failures with a delay, whereas LLMD detects earlier.
+    </p>
+  </div>
+</section>
+<!-- End demo videos -->
+
+<!-- Demo videos -->
+<section class="section task-video-section">
+  <div class="container is-max-desktop">
+    <div class="box task-video-box">
+      <h3 class="title is-4 task-video-title">Task: Drawer</h3>
+      <p class="task-prompt">Language Description: "Put all red blocks in the top drawer."</p>
+      <div class="columns is-multiline">
+      <div class="column is-half">
+        <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+          <source src="static/videos/drawer_iid_failure/pi_acc_failure.mp4" type="video/mp4">
+        </video>
+        <p class="demo-caption has-text-centered">&pi;<sub>0.5</sub> ACC</p>
+      </div>
+      <div class="column is-half">
+        <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+          <source src="static/videos/drawer_iid_failure/pi_llmd_failure.mp4" type="video/mp4">
+        </video>
+        <p class="demo-caption has-text-centered">&pi;<sub>0.5</sub> LLMD</p>
+      </div>
+      </div>
+    </div>
+    <p class="task-video-description">
+      A common failure case of LLMD is that is doesn't detect failures, while ACC detects them.
+    </p>
+  </div>
+</section>
+<!-- End demo videos -->
+
+<!-- Demo videos -->
+<section class="section task-video-section">
+  <div class="container is-max-desktop">
+    <div class="box task-video-box">
+      <h3 class="title is-4 task-video-title">Task: Stack T</h3>
+      <p class="task-prompt">Language Description: "Stack both t objects on top of each other."</p>
+      <div class="columns is-multiline">
+      <div class="column is-half">
+        <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+          <source src="static/videos/stack_t_iid_failure/xvla_acc_success.mp4" type="video/mp4">
+        </video>
+        <p class="demo-caption has-text-centered">&pi;<sub>0.5</sub> ACC</p>
+      </div>
+      <div class="column is-half">
+        <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+          <source src="static/videos/stack_t_iid_failure/xvla_llmd_failure.mp4" type="video/mp4">
+        </video>
+        <p class="demo-caption has-text-centered">&pi;<sub>0.5</sub> LLMD</p>
+      </div>
+      </div>
+    </div>
+    <p class="task-video-description">
+      For some failure modes sometimes even both detectors fail to detect the failure in time.
+    </p>
+  </div>
+</section>
+<!-- End demo videos -->
+
+
+<!-- Demo videos -->
+<section class="section task-video-section task-group-start">
+  <div class="container is-max-desktop">
+  <h2 class="title is-3 has-text-centered">Real-World Successful Executions with No Failure Detected</h2>
+
+    <div class="box task-video-box">
+      <h3 class="title is-4 task-video-title">Task: Blocks</h3>
+      <p class="task-prompt">Language Description: "Stack the green block on the blue block."</p>
+      <div class="columns is-multiline">
+      <div class="column is-half">
+        <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+          <source src="static/videos/block_iid_success/pi_acc_success.mp4" type="video/mp4">
+        </video>
+        <p class="demo-caption has-text-centered">&pi;<sub>0.5</sub> ACC</p>
+      </div>
+      <div class="column is-half">
+        <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+          <source src="static/videos/block_iid_success/pi_llmd_success.mp4" type="video/mp4">
+        </video>
+        <p class="demo-caption has-text-centered">&pi;<sub>0.5</sub> LLMD</p>
+      </div>
+
+    <div class="column is-half">
+      <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+        <source src="static/videos/block_iid_success/xvla_acc_success.mp4" type="video/mp4">
+      </video>
+      <p class="demo-caption has-text-centered">X-VLA ACC</p>
+    </div>
+
+    <div class="column is-half">
+      <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+        <source src="static/videos/block_iid_success/xvla_llmd_success.mp4" type="video/mp4">
+      </video>
+      <p class="demo-caption has-text-centered">X-VLA LLMD</p>
+    </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End demo videos -->
+
+<!-- Demo videos -->
+<section class="section task-video-section">
+  <div class="container is-max-desktop">
+
+    <div class="box task-video-box">
+      <h3 class="title is-4 task-video-title">Task: Drawer</h3>
+      <p class="task-prompt">Language Description: "Put all red blocks in the top drawer."</p>
+      <div class="columns is-multiline">
+      <div class="column is-half">
+        <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+          <source src="static/videos/drawer_iid_success/pi_acc_success.mp4" type="video/mp4">
+        </video>
+        <p class="demo-caption has-text-centered">&pi;<sub>0.5</sub> ACC</p>
+      </div>
+      <div class="column is-half">
+        <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+          <source src="static/videos/drawer_iid_success/pi_llmd_success.mp4" type="video/mp4">
+        </video>
+        <p class="demo-caption has-text-centered">&pi;<sub>0.5</sub> LLMD</p>
+      </div>
+
+    <div class="column is-half">
+      <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+        <source src="static/videos/drawer_iid_success/xvla_acc_success.mp4" type="video/mp4">
+      </video>
+      <p class="demo-caption has-text-centered">X-VLA ACC</p>
+    </div>
+
+    <div class="column is-half">
+      <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+        <source src="static/videos/drawer_iid_success/xvla_llmd_success.mp4" type="video/mp4">
+      </video>
+      <p class="demo-caption has-text-centered">X-VLA LLMD</p>
+    </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End demo videos -->
+
+<!-- Demo videos -->
+<section class="section task-video-section">
+  <div class="container is-max-desktop">
+
+    <div class="box task-video-box">
+      <h3 class="title is-4 task-video-title">Task: Cups</h3>
+      <p class="task-prompt">Language Description: "Pick up one cup and stack it into another."</p>
+      <div class="columns is-multiline">
+      <div class="column is-half">
+        <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+          <source src="static/videos/cups_iid_success/pi_acc_success.mp4" type="video/mp4">
+        </video>
+        <p class="demo-caption has-text-centered">&pi;<sub>0.5</sub> ACC</p>
+      </div>
+      <div class="column is-half">
+        <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+          <source src="static/videos/cups_iid_success/pi_llmd_success.mp4" type="video/mp4">
+        </video>
+        <p class="demo-caption has-text-centered">&pi;<sub>0.5</sub> LLMD</p>
+      </div>
+
+    <div class="column is-half">
+      <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+        <source src="static/videos/cups_iid_success/xvla_acc_success.mp4" type="video/mp4">
+      </video>
+      <p class="demo-caption has-text-centered">X-VLA ACC</p>
+    </div>
+
+    <div class="column is-half">
+      <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+        <source src="static/videos/cups_iid_success/xvla_llmd_success.mp4" type="video/mp4">
+      </video>
+      <p class="demo-caption has-text-centered">X-VLA LLMD</p>
+    </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End demo videos -->
+
+<!-- Demo videos -->
+<section class="section task-video-section">
+  <div class="container is-max-desktop">
+
+    <div class="box task-video-box">
+      <h3 class="title is-4 task-video-title">Task: Kitchen</h3>
+      <p class="task-prompt">Language Description: "Remove the pot lid, move the carrot from pan to pot, replace the lid, and place the pan in the sink."</p>
+      <div class="columns is-multiline">
+      <div class="column is-half">
+        <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+          <source src="static/videos/kitchen_iid_success/pi_acc_success.mp4" type="video/mp4">
+        </video>
+        <p class="demo-caption has-text-centered">&pi;<sub>0.5</sub> ACC</p>
+      </div>
+      <div class="column is-half">
+        <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+          <source src="static/videos/kitchen_iid_success/pi_llmd_success.mp4" type="video/mp4">
+        </video>
+        <p class="demo-caption has-text-centered">&pi;<sub>0.5</sub> LLMD</p>
+      </div>
+
+    <div class="column is-half">
+      <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+        <source src="static/videos/kitchen_iid_success/xvla_acc_success.mp4" type="video/mp4">
+      </video>
+      <p class="demo-caption has-text-centered">X-VLA ACC</p>
+    </div>
+
+    <div class="column is-half">
+      <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+        <source src="static/videos/kitchen_iid_success/xvla_llmd_success.mp4" type="video/mp4">
+      </video>
+      <p class="demo-caption has-text-centered">X-VLA LLMD</p>
+    </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End demo videos -->
+
+<!-- Demo videos -->
+<section class="section task-video-section">
+  <div class="container is-max-desktop">
+
+    <div class="box task-video-box">
+      <h3 class="title is-4 task-video-title">Task: Stack T</h3>
+      <p class="task-prompt">Language Description: "Stack both t objects on top of each other."</p>
+      <div class="columns is-multiline">
+      <div class="column is-half">
+        <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+          <source src="static/videos/stack_t_iid_success/pi_acc_success.mp4" type="video/mp4">
+        </video>
+        <p class="demo-caption has-text-centered">&pi;<sub>0.5</sub> ACC</p>
+      </div>
+      <div class="column is-half">
+        <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+          <source src="static/videos/stack_t_iid_success/pi_llmd_success.mp4" type="video/mp4">
+        </video>
+        <p class="demo-caption has-text-centered">&pi;<sub>0.5</sub> LLMD</p>
+      </div>
+
+    <div class="column is-half">
+      <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+        <source src="static/videos/stack_t_iid_success/xvla_acc_success.mp4" type="video/mp4">
+      </video>
+      <p class="demo-caption has-text-centered">X-VLA ACC</p>
+    </div>
+
+    <div class="column is-half">
+      <video class="demo-video" autoplay controls muted loop playsinline preload="metadata">
+        <source src="static/videos/stack_t_iid_success/xvla_llmd_success.mp4" type="video/mp4">
+      </video>
+      <p class="demo-caption has-text-centered">X-VLA LLMD</p>
+    </div>
+
+      </div>
     </div>
   </div>
 </section>
