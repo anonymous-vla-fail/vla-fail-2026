@@ -289,7 +289,7 @@
     </div>
     <div class="content has-text-justified overview-text">
       <p>
-        VLA-FAIL performs runtime failure detection for vision-language-action models without requiring failure rollouts. The framework combines last-layer Mahalanobis distance, which detects out-of-distribution states from model features, with action chunk consistency, which detects failures from inconsistent receding-horizon action predictions. These complementary signals provide early and reliable failure detection while adding minimal computational overhead.
+        VLA-FAIL performs runtime failure detection for vision-language-action models without requiring failure rollouts. The framework combines last-layer Mahalanobis distance (LLMD), which detects out-of-distribution states from model features, with action chunk consistency (ACC), which detects failures from inconsistent receding-horizon action predictions. These complementary signals provide early and reliable failure detection while adding minimal computational overhead.
       </p>
     </div>
   </div>
@@ -310,7 +310,7 @@
     </div>
     <div class="content has-text-justified overview-text">
       <p>
-        Time in mil-liseconds to sample an action chunk for X-VLA on an NVIDIA RTX 5090 GPU when using various failure detectors. The numbers behind ACE and Diff indicate the number of action samples. These baseline methods incur significant computational overhead and are therefore not real-time capable. The time for the VLM forward pass is excluded as it is identical across methods.
+        Inference latency is a major concern for the real-time deployment of large VLAs. Failure detectors must therefore be computationally efficient to be practical in real-world applications. This graph shows the time in milliseconds to sample an action chunk for X-VLA on an NVIDIA RTX 5090 GPU when using various failure detectors. 'Raw' corresponds to the inference latency without failure detection. The numbers behind ACE and Diff indicate the number of action samples. These baseline methods incur significant computational overhead and are therefore not real-time capable. The time for the VLM forward pass (17 ms) is excluded as it is identical across methods.
       </p>
     </div>
   </div>
@@ -320,7 +320,13 @@
 <!-- Demo videos -->
 <section class="section task-video-section task-group-start">
   <div class="container is-max-desktop">
-  <h2 class="title is-3 has-text-centered">Real-World Successful Failure Detected</h2>
+  <h2 class="title is-3 has-text-centered">Real-World Failure Detection</h2>
+    <div class="content has-text-justified overview-text">
+      <p>
+        We introduce two complementary failure detectors for VLAs: LLMD (feature-based) and ACC (action-based). Both can reliably detect task failure across diverse real-world tasks.
+      </p>
+      <p>The red line shows the detector score for either method. As soon as it crosses the white dashed threshold line, a likely failure is detected.</p>
+    </div>
 
     <div class="box task-video-box">
       <h3 class="title is-4 task-video-title">Task: Blocks</h3>
@@ -484,8 +490,12 @@
 <!-- Demo videos -->
 <section class="section task-video-section task-group-start">
   <div class="container is-max-desktop">
-  <h2 class="title is-3 has-text-centered">Real-World Detector Failure Cases</h2>
-
+  <h2 class="title is-3 has-text-centered">LLMD and ACC are Complementary</h2>
+    <div class="content has-text-justified overview-text">
+      <p>
+      On average, LLMD (feature-based) detects failures earlier than ACC...
+      </p>
+    </div>
     <div class="box task-video-box">
       <h3 class="title is-4 task-video-title">Task: Blocks</h3>
       <p class="task-prompt">Language Description: "Stack the green block on the yellow block."</p>
@@ -504,15 +514,17 @@
       </div>
       </div>
     </div>
-    <p class="task-video-description">
-      A common failure case of ACC is that it detects failures with a delay, whereas LLMD detects earlier.
-    </p>
   </div>
 </section>
 <!-- End demo videos -->
 
 <!-- Demo videos -->
 <section class="section task-video-section">
+    <div class="content has-text-justified overview-text">
+      <p>
+      ...while ACC (action-based) detects failures more reliably, but generally later during an episode.
+      </p>
+    </div>
   <div class="container is-max-desktop">
     <div class="box task-video-box">
       <h3 class="title is-4 task-video-title">Task: Drawer</h3>
@@ -532,15 +544,17 @@
       </div>
       </div>
     </div>
-    <p class="task-video-description">
-      A common failure case of LLMD is that is doesn't detect failures, while ACC detects them.
-    </p>
   </div>
 </section>
 <!-- End demo videos -->
 
 <!-- Demo videos -->
 <section class="section task-video-section">
+    <div class="content has-text-justified overview-text">
+      <p>
+      Still, there are failures that neither method can detect within a reasonable time frame.
+      </p>
+    </div>
   <div class="container is-max-desktop">
     <div class="box task-video-box">
       <h3 class="title is-4 task-video-title">Task: Stack T</h3>
@@ -560,9 +574,6 @@
       </div>
       </div>
     </div>
-    <p class="task-video-description">
-      For some failure modes sometimes even both detectors fail to detect the failure in time.
-    </p>
   </div>
 </section>
 <!-- End demo videos -->
@@ -571,7 +582,7 @@
 <!-- Demo videos -->
 <section class="section task-video-section task-group-start">
   <div class="container is-max-desktop">
-  <h2 class="title is-3 has-text-centered">Real-World Successful Executions with No Failure Detected</h2>
+  <h2 class="title is-3 has-text-centered">Real-World Successful Episodes with No Failure Detected</h2>
 
     <div class="box task-video-box">
       <h3 class="title is-4 task-video-title">Task: Blocks</h3>
